@@ -1,5 +1,6 @@
 import 'package:f_sm_ca/jwt/login_jwt.dart';
 import 'package:f_sm_ca/jwt/signup_jwt.dart';
+import 'package:f_sm_ca/riverpod/futureprovider/future_provider.dart';
 import 'package:f_sm_ca/riverpod/provider/theme_notifier.dart';
 import 'package:f_sm_ca/riverpod/provider/theme_switching_logic.dart';
 import 'package:f_sm_ca/riverpod/provider/ui_theme_screen.dart';
@@ -23,7 +24,7 @@ class MyApp extends ConsumerWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: getAppTheme(themeState),
-      home: const ThemeScreen(),
+      home: FutureScreen(),
     );
   }
 }
