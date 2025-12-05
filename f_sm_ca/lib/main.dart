@@ -6,6 +6,7 @@ import 'package:f_sm_ca/riverpod/provider/theme_switching_logic.dart';
 import 'package:f_sm_ca/riverpod/provider/ui_theme_screen.dart';
 import 'package:f_sm_ca/riverpod/statenotifierprovider/stp_screen.dart';
 import 'package:f_sm_ca/riverpod/stateprovider/home_sp.dart';
+import 'package:f_sm_ca/riverpod/streamprovider/stream_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -24,7 +25,7 @@ class MyApp extends ConsumerWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: getAppTheme(themeState),
-      home: FutureScreen(),
+      home: TimerScreen(),
     );
   }
 }
