@@ -1,3 +1,5 @@
+import 'package:f_sm_ca/bloc/login/bloc/login_bloc.dart';
+import 'package:f_sm_ca/bloc/login/login_page.dart';
 import 'package:f_sm_ca/jwt/login_jwt.dart';
 import 'package:f_sm_ca/jwt/signup_jwt.dart';
 import 'package:f_sm_ca/riverpod/futureprovider/future_provider.dart';
@@ -10,22 +12,45 @@ import 'package:f_sm_ca/riverpod/streamprovider/stream_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:f_sm_ca/bloc/login/login_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+// void main() {
+//   runApp(const ProviderScope(child: MyApp()));
+// }
 
 void main() {
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(MultiBlocProvider(providers: [
+    BlocProvider(create: (context)=>LoginBloc())
+  ],
+  child: MyApp()));
 }
 
-class MyApp extends ConsumerWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final themeState = ref.watch(themeProvider);
+  Widget build(BuildContext context) {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: getAppTheme(themeState),
-      home: TimerScreen(),
+      // theme: getAppTheme(themeState),
+      home: LoginBlocScreen(),
     );
   }
 }
+
+// class MyApp extends ConsumerWidget {
+//   const MyApp({super.key});
+//
+//   @override
+//   Widget build(BuildContext context, WidgetRef ref) {
+//     final themeState = ref.watch(themeProvider);
+//
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       theme: getAppTheme(themeState),
+//       home: LoginBlocScreen(),
+//     );
+//   }
+// }
