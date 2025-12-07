@@ -1,3 +1,5 @@
+import 'package:f_sm_ca/bloc/counter_page/counter_bloc.dart';
+import 'package:f_sm_ca/bloc/counter_page/counter_page.dart';
 import 'package:f_sm_ca/bloc/login/bloc/login_bloc.dart';
 import 'package:f_sm_ca/bloc/login/login_page.dart';
 import 'package:f_sm_ca/jwt/login_jwt.dart';
@@ -21,7 +23,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(MultiBlocProvider(providers: [
-    BlocProvider(create: (context)=>LoginBloc())
+    BlocProvider(create: (context)=>LoginBloc()),
+    BlocProvider(create: (context)=>CounterBloc())
   ],
   child: MyApp()));
 }
@@ -35,7 +38,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // theme: getAppTheme(themeState),
-      home: LoginBlocScreen(),
+      home: CounterScreen(),
     );
   }
 }
